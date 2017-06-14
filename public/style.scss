@@ -4,6 +4,7 @@ $text: #c9c9c9;
 
 *{
   margin: 0;
+  overflow: hidden;
 }
 body{
   background-color: $prime;
@@ -11,7 +12,19 @@ body{
   margin: 0 auto;
 }
 
-.wrapper{
+//reset
+.loader{
+  border: 2px solid lighten($secondary, 13);
+  border-top: 2px solid darken($secondary, 13);
+  margin: 0 auto;
+  border: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg);}
 }
 //title top bar
 #title-bar{
@@ -135,6 +148,63 @@ body{
   #wrap{
     height: 100%;
     width: 95%;
+  }
+}
+#jupiter{
+  width: 95%;
+  h3{
+    position: relative;
+    left: 4%;
+    margin: 20px;
+    color: lighten($secondary, 2);
+    width: auto;
+  }
+  #topTracks{
+    height: 240px;
+    width: 100%;
+    margin-left: 100px;
+    border-radius: 10px;
+    background: lighten($prime, 5);
+    padding: 15px;
+    h4{
+      color: lighten($secondary, 7);
+    }
+    .h-list{
+      .card{
+        height: 150px;
+        width: 200px;
+        padding: 10px;
+        background: url('https://lastfm-img2.akamaized.net/i/u/174s/b7457fa791ece7fa673eb0b4431657f4.png') no-repeat;
+        background-size: cover;
+        filter: contrast(10px);
+        margin-right: 5px;
+        border-radius: 10px;
+        display: inline-block;
+        span{
+          color: $prime;
+          text-align: right;
+        }
+      }
+      .overlay{
+        position: relative;
+        &:before{
+          position: absolute;
+          content: " ";
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: block;
+          z-index: 0;
+        }
+      }
+      .shade{
+        &:before{
+          background: lighten($secondary, 30);
+          opacity: 0.3;
+        }
+      }
+    }
   }
 }
 

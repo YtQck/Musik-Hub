@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>YtQck</title>
+    <title>Musik Hub</title>
     <link rel="stylesheet" type="text/css" href="./public/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./public/style.min.css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -31,7 +33,23 @@
             <li><i class="fa fa-home"></i></li>
           </ul>
         </div>
-        <div id=""></div>
+        <div ng-view id="jupiter">
+            <h3 id="appName">Music Hub</h3>
+
+            <div id="topTracks">
+              <h4>Top Tracks</h4>
+              <div class="h-list">
+                <div class="card overlay shade">
+                  <span>lorem ipsum</span>
+
+                </div>
+                <div class="card overlay shade">
+                  j
+
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
 
       <div id="player">
