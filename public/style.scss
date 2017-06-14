@@ -1,0 +1,152 @@
+$prime: #171d30;
+$secondary: #5072E7;
+$text: #c9c9c9;
+
+*{
+  margin: 0;
+}
+body{
+  background-color: $prime;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper{
+}
+//title top bar
+#title-bar{
+  padding: 6px;
+  height: 40px;
+  word-spacing: 100vw;
+  background-color: lighten($prime, 6);
+  box-shadow: 0px 0px 5px darken($prime, 10);
+  content: '';
+  #logo{
+    display: inline;
+    width: 28px;
+    height: 28px;
+    float: left;
+  }
+  .search{
+    margin-left: 20px;
+    width: 30%;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+    display: inline;
+    float: left;
+    input{
+      width: 37px;
+      height: 30px;
+      background: lighten($prime, 15);
+      border: none;
+      font: 10pt;
+      color: darken($prime, 10);
+      padding-left: 31px;
+      border-radius: 17px;
+      transition: width 0.55s ease, background 0.50s ease;
+      &::-webkit-input-placeholder{
+        color: darken($prime, 2);
+      }
+      &:focus,&:active{
+        outline: none;
+        background: white;
+        width: 300px;
+        border-radius: 7px;
+      }
+    }
+    .icon{
+      position: absolute;
+      margin-top: 2px;
+      margin-left: 10px;
+      z-index: 1;
+      color: darken($prime, 6);
+    }
+    &:hover{
+      input{
+        width: 300px;
+      }
+      .icon{
+        color: darken($prime, 2);
+      }
+    }
+  }
+  #user{
+    float: right;
+    background-color: lighten($secondary, 10);
+    color: white;
+    width: 75px;
+    height: 28px;
+    vertical-align: middle;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 4px;
+    line-height: 1.2em;
+    display: inline;
+    &:hover{
+      background: lighten($secondary, 15);
+      box-shadow: 1px 1px 2px darken($prime, 10);
+      cursor: pointer;
+    }
+    .button{
+      padding: 5px;
+    }
+  }
+}
+
+//main
+#main{
+  display: inline-block;
+  height: 580px;
+  width: 100%;
+  background: $prime;
+  #menu{
+    background: lighten($prime, 4);
+    height: 100%;
+    width: 5%;
+    display: block;
+    float: left;
+    ul{
+      list-style-type: none;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background: lighten($prime, 10);
+      padding: 0px;
+      padding-top: 20px;
+      li{
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+        display: block;
+        color: grayscale($prime);
+        -webkit-text-stroke: 0.5px lighten($prime, 10);
+        cursor: pointer;
+        font-weight: lighter;
+        &:hover{
+          color: $text;
+        }
+        .active{
+          color: $text;
+        }
+      }
+    }
+  }
+  #wrap{
+    height: 100%;
+    width: 95%;
+  }
+}
+
+//player
+#player{
+  display: block;
+  z-index: 2;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background: lighten($prime, 10);
+}
