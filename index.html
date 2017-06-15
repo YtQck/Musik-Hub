@@ -6,11 +6,12 @@
     <title>Musik Hub</title>
     <link rel="stylesheet" type="text/css" href="./public/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./public/style.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
   </head>
-  <body>
+  <body ng-app="Musik-Hub">
     <div class="wrapper">
       <div id="title-bar">
         <img src="./public/logo.svg" id="logo">
@@ -26,11 +27,11 @@
       <div id="main">
         <div id="menu">
           <ul>
-            <li><i class="fa fa-home active"></i></li>
-            <li><i class="fa fa-microphone"></i></li>
-            <li><i class="fa fa-home"></i></li>
-            <li><i class="fa fa-home"></i></li>
-            <li><i class="fa fa-home"></i></li>
+            <li><i class="menu-ic homeM fa fa-home active"></i></li>
+            <li><i class="menu-ic searchM fa fa-search"></i></li>
+            <li><i class="menu-ic fa fa-microphone"></i></li>
+            <li><i class="menu-ic fa fa-home"></i></li>
+            <li><i class="menu-ic fa fa-home"></i></li>
           </ul>
         </div>
         <div ng-view id="jupiter">
@@ -39,14 +40,70 @@
             <div id="topTracks">
               <h4>Top Tracks</h4>
               <div class="h-list">
-                <div class="card overlay shade">
-                  <span>lorem ipsum</span>
-
-                </div>
-                <div class="card overlay shade">
-                  j
-
-                </div>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
+                <li class="card">
+                  <div class="overlay shade"></div>
+                  <div class="text">
+                    <span class="track">lorem ipsum</span><br>
+                    <span class="artist">hello</span><br>
+                    <span class="playButton"><i class="fa fa-play"></i></span>
+                  </div>
+                </li>
               </div>
             </div>
         </div>
@@ -58,5 +115,24 @@
     <script src="public/jquery-3.1.1.slim.min.js"></script>
     <script src="public/tether.min.js"></script>
     <script src="public/bootstrap.min.js"></script>
+    <script src="public/script.js"></script>
+    <script>
+      searchQuery = "";
+      var app = angular.module("Musik-Hub", ["ngRoute"]);
+      app.config(function($routeProvider) {
+        $routeProvider
+            .when("/search/:query*", {
+                templateUrl: function(param){
+                  return 'alien/search.html';
+                },
+                controller: 'searchController'
+            })
+      });
+      app.controller('searchController', function($scope, $routeParams) {
+        $(".menu-ic").removeClass('active');
+        $(".searchM").addClass('active');
+        $scope.query = $routeParams.query;
+      })
+    </script>
   </body>
 </html>
